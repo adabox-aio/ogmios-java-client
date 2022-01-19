@@ -1,4 +1,4 @@
-package com.reina.ogmios.model.query;
+package com.reina.ogmios.model.query.request;
 
 public enum QueryType {
 

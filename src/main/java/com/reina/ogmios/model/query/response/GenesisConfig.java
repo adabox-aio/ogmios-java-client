@@ -34,12 +34,6 @@ public class GenesisConfig extends QueryResponse {
         super(msgId);
     }
 
-    public GenesisConfig(long msgId, long slot, String hash) {
-        this(msgId);
-//        setSlot(slot);
-//        setHash(hash);
-    }
-
     public static GenesisConfig deserialize(JSONObject reflection, JSONObject result) {
         GenesisConfig genesisConfig = new GenesisConfig(reflection.getLong("msg_id"));
         genesisConfig.setActiveSlotsCoefficient(result.getString("activeSlotsCoefficient"));

@@ -1,5 +1,6 @@
 package com.reina.ogmios.model.query;
 
+import com.reina.ogmios.model.Amount;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.json.JSONArray;
@@ -48,7 +49,7 @@ public class Utxo {
             } catch (JSONException ignored) {
                 //ignored
             }
-            utxo = new Utxo(txId,index,amountList,datum);
+            utxo = new Utxo(txId, index, amountList, datum);
         }
         return utxo;
     }
@@ -60,7 +61,7 @@ public class Utxo {
         Iterator<String> iterator = assets.keys();
         while (iterator.hasNext()) {
             String unit = iterator.next();
-            amountList.add(new Amount(unit,assets.getBigInteger(unit)));
+            amountList.add(new Amount(unit, assets.getBigInteger(unit)));
         }
         return amountList;
     }

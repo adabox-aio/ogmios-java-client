@@ -3,7 +3,8 @@ package com.reina.ogmios.model.base;
 public enum MethodType {
 
     QUERY("Query"),
-    REQUEST_NEXT("RequestNext");
+    REQUEST_NEXT("RequestNext"),
+    SUBMIT_TX("SubmitTx");
 
     private final String value;
 
@@ -15,12 +16,11 @@ public enum MethodType {
         return value;
     }
 
-    public static MethodType convert(String methodType) {
-        switch (methodType) {
-            case "Query":
-                return QUERY;
-            case "RequestNext":
-                return REQUEST_NEXT;
+    public static MethodType convert(String type) {
+        for (MethodType methodType : values()) {
+            if (methodType.getValue().equals(type)) {
+                return methodType;
+            }
         }
         return null;
     }

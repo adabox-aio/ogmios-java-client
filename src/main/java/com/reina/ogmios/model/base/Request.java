@@ -1,28 +1,26 @@
 package com.reina.ogmios.model.base;
 
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public abstract class Request extends Message {
 
     private static final String TYPE = "jsonwsp/request";
     private static final String VERSION = "1.0";
     private static final String SERVICE_NAME = "ogmios";
-    private final MethodType methodType;
 
-    public Request(MethodType methodType) {
-        this.methodType = methodType;
-    }
-
-    protected Request(long msgId, MethodType methodType) {
+    protected Request(long msgId) {
         super(msgId);
-        this.methodType = methodType;
     }
 
     @Override
     public String toString() {
-        return "{\"type\":\"" + TYPE + "\",\"version\":\"" + VERSION + "\",\"servicename\":\"" + SERVICE_NAME + "\",\"methodname\":\"" + methodType.getValue() + "\",\"mirror\":{" + getMirror() + "},\"args\":{" + getArgs() + "}}";
+        return "{\"type\":\"" + TYPE + "\",\"version\":\"" + VERSION + "\",\"servicename\":\"" + SERVICE_NAME + "\",\"methodname\":\"" + getMethodType() + "\",\"mirror\":{" + getMirror() + "},\"args\":{" + getArgs() + "}}";
     }
+
+    protected abstract String getMethodType();
 
     public abstract String getArgs();
 

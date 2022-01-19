@@ -1,6 +1,5 @@
 package com.reina.ogmios.model.query.request;
 
-import com.reina.ogmios.model.query.QueryType;
 import com.reina.ogmios.model.query.request.base.QueryRequest;
 import lombok.NoArgsConstructor;
 
@@ -14,11 +13,11 @@ public class GenesisConfigRequest extends QueryRequest {
     }
 
     public String getQueryArgs() {
-        return "\""+QUERY_TYPE.getValue()+"\"";
+        return "\"" + QUERY_TYPE.getValue() + "\"";
     }
 
     @Override
     public String getMirror() {
-        return "\"object\":\""+QUERY_TYPE.getValue()+"\",\"msg_id\":"+getMsgId();
+        return "\"object\":\"" + QUERY_TYPE.getValue() + "\",\"msg_id\":" + getMsgId();
     }
 }

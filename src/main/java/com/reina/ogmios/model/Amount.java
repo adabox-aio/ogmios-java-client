@@ -1,4 +1,4 @@
-package com.reina.ogmios.model.query;
+package com.reina.ogmios.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

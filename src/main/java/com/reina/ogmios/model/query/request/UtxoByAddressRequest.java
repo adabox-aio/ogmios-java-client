@@ -1,6 +1,5 @@
 package com.reina.ogmios.model.query.request;
 
-import com.reina.ogmios.model.query.QueryType;
 import com.reina.ogmios.model.query.request.base.QueryRequest;
 import lombok.EqualsAndHashCode;
 

@@ -3,9 +3,11 @@ package com.reina.ogmios.model.query.response.base;
 import com.reina.ogmios.model.base.Response;
 import com.reina.ogmios.model.query.response.GenesisConfig;
 import com.reina.ogmios.model.query.response.LedgerTip;
-import com.reina.ogmios.model.query.QueryType;
+import com.reina.ogmios.model.query.request.QueryType;
 import com.reina.ogmios.model.query.response.UtxoByAddress;
 import org.json.JSONObject;
+
+import java.util.Objects;
 
 public class QueryResponse extends Response {
 
@@ -15,7 +17,7 @@ public class QueryResponse extends Response {
 
     public static QueryResponse deserialize(JSONObject reflection, JSONObject jsonObject) {
         QueryType queryType = QueryType.convert(reflection.getString("object"));
-        switch (queryType) {
+        switch (Objects.requireNonNull(queryType)) {
             case LEDGER_TIP:
                 return LedgerTip.deserialize(reflection,jsonObject.getJSONObject("result"));
             case UTXO:
