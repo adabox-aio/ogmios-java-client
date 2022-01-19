@@ -1,8 +1,6 @@
 <div align="center">
     <hr/>
         <h1 align="center" style="border-bottom: none">Ogmios Java Client Library</h1>
-
-[![License](https://img.shields.io/badge/License-Apache_2.0-yellowgreen.svg)](https://opensource.org/licenses/Apache-2.0)
     <hr/>
 </div>
 
@@ -36,6 +34,10 @@
   - [x] utxoByAddress
 
 <hr/>
+<div align="center">
+
+[![License](https://img.shields.io/badge/License-Apache_2.0-yellowgreen.svg)](https://opensource.org/licenses/Apache-2.0)
+</div>
 
 [//]: # (<p align="center">)
 
@@ -54,5 +56,3 @@
 [//]: # (  <a href="CHANGELOG.md">:floppy_disk: Changelog</a>)
 
 [//]: # (</p>)
-
-<p align="center"><a href="https://github.com/edridudi/ogmios-java-client/blob/master/LICENSE"><img src=".github/license.svg" alt="license=MPL-2.0" /></a></p>
