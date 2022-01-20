@@ -1,8 +1,6 @@
 package com.reina.ogmios;
 
-import com.reina.ogmios.model.query.response.GenesisConfig;
-import com.reina.ogmios.model.query.response.LedgerTip;
-import com.reina.ogmios.model.query.response.UtxoByAddress;
+import com.reina.ogmios.model.query.response.*;
 import com.reina.ogmios.model.tx.response.SubmitTxResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.*;
@@ -22,6 +20,20 @@ class OgmiosWSClientIntegrationTest {
     void initiateOgmiosClient() throws InterruptedException, URISyntaxException {
         ogmiosWSClient = new OgmiosWSClient(new URI("ws://127.0.0.1:1337/"));
         ogmiosWSClient.connectBlocking(30, TimeUnit.SECONDS);
+    }
+
+    @Test
+    void currentEpochTest() {
+        CurrentEpoch currentEpoch = ogmiosWSClient.currentEpoch();
+        log.info(currentEpoch.toString());
+        Assertions.assertNotNull(currentEpoch);
+    }
+
+    @Test
+    void currentProtocolParametersTest() {
+        CurrentProtocolParameters currentProtocolParameters = ogmiosWSClient.currentProtocolParameters();
+        log.info(currentProtocolParameters.toString());
+        Assertions.assertNotNull(currentProtocolParameters);
     }
 
     @Test

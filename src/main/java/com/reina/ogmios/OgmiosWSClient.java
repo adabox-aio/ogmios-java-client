@@ -9,12 +9,8 @@ import com.reina.ogmios.model.base.iface.LocalTxSubmission;
 import com.reina.ogmios.model.chain.request.RequestNext;
 import com.reina.ogmios.model.chain.response.AcquireResponse;
 import com.reina.ogmios.model.chain.response.RequestNextResponse;
-import com.reina.ogmios.model.query.request.GenesisConfigRequest;
-import com.reina.ogmios.model.query.request.LedgerTipRequest;
-import com.reina.ogmios.model.query.request.UtxoByAddressRequest;
-import com.reina.ogmios.model.query.response.GenesisConfig;
-import com.reina.ogmios.model.query.response.LedgerTip;
-import com.reina.ogmios.model.query.response.UtxoByAddress;
+import com.reina.ogmios.model.query.request.*;
+import com.reina.ogmios.model.query.response.*;
 import com.reina.ogmios.model.tx.request.SubmitTxRequest;
 import com.reina.ogmios.model.tx.response.SubmitTxResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -99,6 +95,16 @@ public class OgmiosWSClient extends WebSocketClient implements LocalChainSync, L
     }
 
     /* LocalStateQuery */
+
+    @Override
+    public CurrentEpoch currentEpoch() {
+        return (CurrentEpoch) send(new CurrentEpochRequest());
+    }
+
+    @Override
+    public CurrentProtocolParameters currentProtocolParameters() {
+        return (CurrentProtocolParameters) send(new CurrentProtocolParametersRequest());
+    }
 
     @Override
     public LedgerTip ledgerTip() {

@@ -6,43 +6,77 @@ import org.json.JSONObject;
 @Data
 public class ProtocolParameters {
 
-    private long maxBlockBodySize;
+    private Long maxBlockBodySize;
     private String decentralizationParameter;
     private String monetaryExpansion;
-    private long minPoolCost;
-    private long maxBlockHeaderSize;
-    private long poolRetirementEpochBound;
-    private long minFeeCoefficient;
-    private long poolDeposit;
+    private Long minPoolCost;
+    private Long maxBlockHeaderSize;
+    private Long poolRetirementEpochBound;
+    private Long minFeeCoefficient;
+    private Long poolDeposit;
     private String poolInfluence;
-    private long maxTxSize;
+    private Long maxTxSize;
     private String extraEntropy;
-    private long minUtxoValue;
+    private Long minUtxoValue;
     private String treasuryExpansion;
     private ProtocolVersion protocolVersion;
-    private long stakeKeyDeposit;
-    private long minFeeConstant;
-    private long desiredNumberOfPools;
+    private Long stakeKeyDeposit;
+    private Long minFeeConstant;
+    private Long desiredNumberOfPools;
 
-    public static ProtocolParameters deserialize(JSONObject protocolParams) {
+    public static ProtocolParameters deserialize(JSONObject jsonObject) {
         ProtocolParameters protocolParameters = new ProtocolParameters();
-        protocolParameters.setMaxBlockBodySize(protocolParams.getLong("maxBlockBodySize"));
-        protocolParameters.setDecentralizationParameter(protocolParams.getString("decentralizationParameter"));
-        protocolParameters.setMonetaryExpansion(protocolParams.getString("monetaryExpansion"));
-        protocolParameters.setMinPoolCost(protocolParams.getLong("minPoolCost"));
-        protocolParameters.setMaxBlockHeaderSize(protocolParams.getLong("maxBlockHeaderSize"));
-        protocolParameters.setPoolRetirementEpochBound(protocolParams.getLong("poolRetirementEpochBound"));
-        protocolParameters.setMinFeeCoefficient(protocolParams.getLong("minFeeCoefficient"));
-        protocolParameters.setPoolDeposit(protocolParams.getLong("poolDeposit"));
-        protocolParameters.setPoolInfluence(protocolParams.getString("poolInfluence"));
-        protocolParameters.setMaxTxSize(protocolParams.getLong("maxTxSize"));
-        protocolParameters.setExtraEntropy(protocolParams.getString("extraEntropy"));
-        protocolParameters.setMinUtxoValue(protocolParams.getLong("minUtxoValue"));
-        protocolParameters.setTreasuryExpansion(protocolParams.getString("treasuryExpansion"));
-        protocolParameters.setProtocolVersion(ProtocolVersion.deserialize(protocolParams.getJSONObject("protocolVersion")));
-        protocolParameters.setStakeKeyDeposit(protocolParams.getLong("stakeKeyDeposit"));
-        protocolParameters.setMinFeeConstant(protocolParams.getLong("minFeeConstant"));
-        protocolParameters.setDesiredNumberOfPools(protocolParams.getLong("desiredNumberOfPools"));
+        if (jsonObject.has("maxBlockBodySize")) {
+            protocolParameters.setMaxBlockBodySize(jsonObject.getLong("maxBlockBodySize"));
+        }
+        if (jsonObject.has("decentralizationParameter")) {
+            protocolParameters.setDecentralizationParameter(jsonObject.getString("decentralizationParameter"));
+        }
+        if (jsonObject.has("monetaryExpansion")) {
+            protocolParameters.setMonetaryExpansion(jsonObject.getString("monetaryExpansion"));
+        }
+        if (jsonObject.has("minPoolCost")) {
+            protocolParameters.setMinPoolCost(jsonObject.getLong("minPoolCost"));
+        }
+        if (jsonObject.has("maxBlockHeaderSize")) {
+            protocolParameters.setMaxBlockHeaderSize(jsonObject.getLong("maxBlockHeaderSize"));
+        }
+        if (jsonObject.has("poolRetirementEpochBound")) {
+            protocolParameters.setPoolRetirementEpochBound(jsonObject.getLong("poolRetirementEpochBound"));
+        }
+        if (jsonObject.has("minFeeCoefficient")) {
+            protocolParameters.setMinFeeCoefficient(jsonObject.getLong("minFeeCoefficient"));
+        }
+        if (jsonObject.has("poolDeposit")) {
+            protocolParameters.setPoolDeposit(jsonObject.getLong("poolDeposit"));
+        }
+        if (jsonObject.has("poolInfluence")) {
+            protocolParameters.setPoolInfluence(jsonObject.getString("poolInfluence"));
+        }
+        if (jsonObject.has("maxTxSize")) {
+            protocolParameters.setMaxTxSize(jsonObject.getLong("maxTxSize"));
+        }
+        if (jsonObject.has("extraEntropy")) {
+            protocolParameters.setExtraEntropy(jsonObject.getString("extraEntropy"));
+        }
+        if (jsonObject.has("minUtxoValue")) {
+            protocolParameters.setMinUtxoValue(jsonObject.getLong("minUtxoValue"));
+        }
+        if (jsonObject.has("treasuryExpansion")) {
+            protocolParameters.setTreasuryExpansion(jsonObject.getString("treasuryExpansion"));
+        }
+        if (jsonObject.has("protocolVersion")) {
+            protocolParameters.setProtocolVersion(ProtocolVersion.deserialize(jsonObject.getJSONObject("protocolVersion")));
+        }
+        if (jsonObject.has("stakeKeyDeposit")) {
+            protocolParameters.setStakeKeyDeposit(jsonObject.getLong("stakeKeyDeposit"));
+        }
+        if (jsonObject.has("minFeeConstant")) {
+            protocolParameters.setMinFeeConstant(jsonObject.getLong("minFeeConstant"));
+        }
+        if (jsonObject.has("desiredNumberOfPools")) {
+            protocolParameters.setDesiredNumberOfPools(jsonObject.getLong("desiredNumberOfPools"));
+        }
         return protocolParameters;
     }
 }

@@ -1,12 +1,22 @@
 package com.reina.ogmios.model.base.iface;
 
-import com.reina.ogmios.model.query.response.GenesisConfig;
-import com.reina.ogmios.model.query.response.LedgerTip;
-import com.reina.ogmios.model.query.response.UtxoByAddress;
+import com.reina.ogmios.model.query.response.*;
 
 import java.security.InvalidParameterException;
 
 public interface LocalStateQuery {
+
+    /**
+     * Get the current Epoch.
+     * @return {@link CurrentEpoch}
+     */
+    CurrentEpoch currentEpoch();
+
+    /**
+     * Get the current Protocol Parameters.
+     * @return {@link CurrentProtocolParameters}
+     */
+    CurrentProtocolParameters currentProtocolParameters();
 
     /**
      * Get the current ledger tip. Will resolve the acquired point if any.
@@ -26,5 +36,4 @@ public interface LocalStateQuery {
      * @return {@link GenesisConfig}
      */
     GenesisConfig genesisConfig();
-
 }

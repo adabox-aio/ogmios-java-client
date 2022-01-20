@@ -4,7 +4,9 @@ public enum QueryType {
 
     LEDGER_TIP("ledgerTip"),
     UTXO("utxo"),
-    GENESIS_CONFIG("genesisConfig");
+    GENESIS_CONFIG("genesisConfig"),
+    CURRENT_EPOCH("currentEpoch"),
+    CURRENT_PROTOCOL_PARAMETERS("currentProtocolParameters");
 
     private final String value;
 
