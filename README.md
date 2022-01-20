@@ -1,6 +1,8 @@
 <div align="center">
     <hr/>
         <h1 align="center" style="border-bottom: none">Ogmios Java Client</h1>
+
+[![License](https://img.shields.io/badge/License-Apache_2.0-yellowgreen.svg)](https://opensource.org/licenses/Apache-2.0)
     <hr/>
 </div>
 
@@ -39,21 +41,14 @@ The Java library allows synchronous communication with **Ogmios** Server by inte
 <hr/>
 <div align="center">
 
-[![License](https://img.shields.io/badge/License-Apache_2.0-yellowgreen.svg)](https://opensource.org/licenses/Apache-2.0)
 </div>
 
 <p align="center">
 <a href="CONTRIBUTING.md">:triangular_ruler: Contributing</a>
+  |
+<a href="SPONSORS.md">:gift_heart: Sponsors</a>
 
 [//]: # (  <a href="https://cardanosolutions.github.io/ogmios">:book: User Manual</a>)
-
-[//]: # (  |) 
-
-[//]: # (  |)
-
-[//]: # (  <a href="SPONSORS.md">:gift_heart: Sponsors</a>)
-
-[//]: # (  |)
 
 [//]: # (  <a href="CHANGELOG.md">:floppy_disk: Changelog</a>)
 </p>
