@@ -1,5 +1,6 @@
 package com.reina.ogmios.model.base.iface;
 
+import com.reina.ogmios.model.tx.response.EvaluateTxResponse;
 import com.reina.ogmios.model.tx.response.SubmitTxResponse;
 
 import java.security.InvalidParameterException;
@@ -11,5 +12,13 @@ public interface LocalTxSubmission {
      * @param cborData CBOR-serialized signed transaction, in base16/base64
      * @return {@link SubmitTxResponse}
      */
-    SubmitTxResponse submitTransaction(byte[] cborData) throws InvalidParameterException;
+    SubmitTxResponse submitTx(byte[] cborData) throws InvalidParameterException;
+
+    /**
+     * Evaluate script execution costs for a transaction
+     * @param cborData  CBOR-serialized signed transaction, in base16/base64
+     * @return {@link EvaluateTxResponse}
+     * @throws InvalidParameterException
+     */
+    EvaluateTxResponse evaluateTx(byte[] cborData) throws InvalidParameterException;
 }

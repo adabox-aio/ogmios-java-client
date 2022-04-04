@@ -4,16 +4,13 @@ public enum MethodType {
 
     QUERY("Query"),
     REQUEST_NEXT("RequestNext"),
-    SUBMIT_TX("SubmitTx");
+    SUBMIT_TX("SubmitTx"),
+    EVALUATE_TX("EvaluateTx");
 
     private final String value;
 
     MethodType(String value) {
         this.value = value;
-    }
-
-    public String getValue() {
-        return value;
     }
 
     public static MethodType convert(String type) {
@@ -23,5 +20,9 @@ public enum MethodType {
             }
         }
         return null;
+    }
+
+    public String getValue() {
+        return value;
     }
 }

@@ -11,7 +11,9 @@ import com.reina.ogmios.model.chain.response.AcquireResponse;
 import com.reina.ogmios.model.chain.response.RequestNextResponse;
 import com.reina.ogmios.model.query.request.*;
 import com.reina.ogmios.model.query.response.*;
+import com.reina.ogmios.model.tx.request.EvaluateTxRequest;
 import com.reina.ogmios.model.tx.request.SubmitTxRequest;
+import com.reina.ogmios.model.tx.response.EvaluateTxResponse;
 import com.reina.ogmios.model.tx.response.SubmitTxResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -95,7 +97,6 @@ public class OgmiosWSClient extends WebSocketClient implements LocalChainSync, L
     }
 
     /* LocalStateQuery */
-
     @Override
     public CurrentEpoch currentEpoch() {
         return (CurrentEpoch) send(new CurrentEpochRequest());
@@ -122,12 +123,19 @@ public class OgmiosWSClient extends WebSocketClient implements LocalChainSync, L
     }
 
     /* LocalTxSubmission */
-
     @Override
-    public SubmitTxResponse submitTransaction(byte[] cborData) throws InvalidParameterException {
+    public SubmitTxResponse submitTx(byte[] cborData) throws InvalidParameterException {
         if (cborData.length == 0) {
             throw new InvalidParameterException();
         }
         return (SubmitTxResponse) send(new SubmitTxRequest(cborData));
+    }
+
+    @Override
+    public EvaluateTxResponse evaluateTx(byte[] cborData) throws InvalidParameterException {
+        if (cborData.length == 0) {
+            throw new InvalidParameterException();
+        }
+        return (EvaluateTxResponse) send(new EvaluateTxRequest(cborData));
     }
 }

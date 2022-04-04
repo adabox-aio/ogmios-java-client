@@ -17,6 +17,7 @@ The Java library allows synchronous communication with **Ogmios** Server by inte
 ## Features
 - Synchronous messaging using java objects
 - Transaction submission with enhanced error messages
+- Transaction Evaluation.
 - Structured Java Objects logging
 - Full ledger state query support:
   - [ ] blockHeight
