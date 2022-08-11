@@ -1,10 +1,10 @@
 package io.adabox.model.tx.response;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.json.JSONObject;
 
 import java.math.BigInteger;
 
@@ -21,13 +21,13 @@ public class FeeTooSmall extends TxError {
         super(TxErrorType.FEE_TOO_SMALL);
     }
 
-    public static FeeTooSmall deserialize(JSONObject jsonObject) {
+    public static FeeTooSmall deserialize(JsonNode jsonObject) {
         FeeTooSmall feeTooSmall = new FeeTooSmall();
         if (jsonObject.has("requiredFee")) {
-            feeTooSmall.setRequiredFee(jsonObject.getBigInteger("requiredFee"));
+            feeTooSmall.setRequiredFee(jsonObject.get("requiredFee").bigIntegerValue());
         }
         if (jsonObject.has("actualFee")) {
-            feeTooSmall.setActualFee(jsonObject.getBigInteger("actualFee"));
+            feeTooSmall.setActualFee(jsonObject.get("actualFee").bigIntegerValue());
         }
         return feeTooSmall;
     }

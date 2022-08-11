@@ -1,7 +1,9 @@
-package io.adabox.model.query.request;
+package io.adabox.model.query.request.base;
 
 public enum QueryType {
 
+    BLOCK_HEIGHT("blockHeight"),
+    CHAIN_TIP("chainTip"),
     LEDGER_TIP("ledgerTip"),
     UTXO("utxo"),
     GENESIS_CONFIG("genesisConfig"),

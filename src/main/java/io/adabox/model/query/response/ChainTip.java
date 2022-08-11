@@ -12,20 +12,20 @@ import lombok.ToString;
 @Setter
 @ToString
 @EqualsAndHashCode(callSuper = true)
-public class LedgerTip extends QueryResponse {
+public class ChainTip extends QueryResponse {
 
     private PointOrOrigin pointOrOrigin;
 
-    public LedgerTip(long msgId) {
+    public ChainTip(long msgId) {
         super(msgId);
     }
 
-    public LedgerTip(long msgId, long slot, String hash) {
+    public ChainTip(long msgId, long slot, String hash) {
         this(msgId);
         setPointOrOrigin(new PointOrOrigin(slot, hash));
     }
 
-    public static LedgerTip deserialize(long msgId, JsonNode jsonNode) {
-        return new LedgerTip(msgId, jsonNode.get("slot").longValue(), jsonNode.get("hash").asText());
+    public static ChainTip deserialize(long msgId, JsonNode jsonNode) {
+        return new ChainTip(msgId, jsonNode.get("slot").longValue(), jsonNode.get("hash").asText());
     }
 }

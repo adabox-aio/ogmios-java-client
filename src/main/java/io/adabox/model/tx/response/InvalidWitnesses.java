@@ -1,10 +1,11 @@
 package io.adabox.model.tx.response;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.json.JSONArray;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,10 +23,10 @@ class InvalidWitnesses extends TxError {
         setWitnesses(witnesses);
     }
 
-    public static InvalidWitnesses deserialize(JSONArray invalidWitnessesEntity) {
+    public static InvalidWitnesses deserialize(ArrayNode invalidWitnessesEntity) {
         List<String> witnesses = new ArrayList<>();
-        for (Object o : invalidWitnessesEntity) {
-            witnesses.add((String) o);
+        for (JsonNode o : invalidWitnessesEntity) {
+            witnesses.add(o.asText());
         }
         return new InvalidWitnesses(witnesses);
     }

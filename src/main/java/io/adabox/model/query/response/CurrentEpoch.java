@@ -1,11 +1,11 @@
 package io.adabox.model.query.response;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import io.adabox.model.query.response.base.QueryResponse;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.json.JSONObject;
 
 @Getter
 @Setter
@@ -13,19 +13,21 @@ import org.json.JSONObject;
 @EqualsAndHashCode(callSuper = true)
 public class CurrentEpoch extends QueryResponse {
 
-    private long epoch;
+    /**
+     * An epoch number
+     */
+    private Integer epoch;
 
     public CurrentEpoch(long msgId) {
         super(msgId);
     }
 
-    public CurrentEpoch(long msgId, long epoch) {
+    public CurrentEpoch(long msgId, int epoch) {
         this(msgId);
         setEpoch(epoch);
     }
 
-    public static CurrentEpoch deserialize(JSONObject reflection, long epoch) {
-        long msgId = reflection.getLong("msg_id");
-        return new CurrentEpoch(msgId, epoch);
+    public static CurrentEpoch deserialize(long msgId, JsonNode jsonNode) {
+        return new CurrentEpoch(msgId, jsonNode.intValue());
     }
 }

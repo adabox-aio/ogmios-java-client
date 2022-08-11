@@ -9,7 +9,7 @@ import lombok.EqualsAndHashCode;
 public class EvaluateTxRequest extends Request {
 
     private static final MethodType METHOD_TYPE = MethodType.EVALUATE_TX;
-    private byte[] cborBytes;
+    private final byte[] cborBytes;
 
     public EvaluateTxRequest(byte[] cborBytes) {
         this.cborBytes = cborBytes;

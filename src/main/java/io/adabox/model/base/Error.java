@@ -1,10 +1,20 @@
 package io.adabox.model.base;
 
-import org.json.JSONObject;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
-public class Error {
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode(callSuper = true)
+public class Error extends Response {
 
-    public static Message deserialize(JSONObject fault) {
-        return null;
+    private String errorMsg;
+
+    public Error(long msgId) {
+        super(msgId);
     }
+
 }

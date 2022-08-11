@@ -1,5 +1,6 @@
 package io.adabox;
 
+import io.adabox.client.OgmiosWSClient;
 import io.adabox.model.query.response.*;
 import io.adabox.model.tx.response.EvaluateTxResponse;
 import io.adabox.model.tx.response.SubmitTxResponse;
@@ -7,6 +8,7 @@ import io.adabox.util.HexUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.*;
 
+import javax.net.ssl.SSLSocketFactory;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Base64;
@@ -20,8 +22,23 @@ class OgmiosWSClientIntegrationTest {
 
     @BeforeAll
     void initiateOgmiosClient() throws InterruptedException, URISyntaxException {
-        ogmiosWSClient = new OgmiosWSClient(new URI("ws://127.0.0.1:1337/"));
-        ogmiosWSClient.connectBlocking(30, TimeUnit.SECONDS);
+        ogmiosWSClient = new OgmiosWSClient(new URI("wss://ogmios-api.testnet.dandelion.link/"));
+        ogmiosWSClient.setSocketFactory(SSLSocketFactory.getDefault());
+        ogmiosWSClient.connectBlocking(60, TimeUnit.SECONDS);
+    }
+
+    @Test
+    void blockHeightTest() {
+        BlockHeight blockHeight = ogmiosWSClient.blockHeight();
+        log.info(blockHeight.toString());
+        Assertions.assertNotNull(blockHeight);
+    }
+
+    @Test
+    void chainTipTest() {
+        ChainTip chainTip = ogmiosWSClient.chainTip();
+        log.info(chainTip.toString());
+        Assertions.assertNotNull(chainTip);
     }
 
     @Test
@@ -36,6 +53,11 @@ class OgmiosWSClientIntegrationTest {
         CurrentProtocolParameters currentProtocolParameters = ogmiosWSClient.currentProtocolParameters();
         log.info(currentProtocolParameters.toString());
         Assertions.assertNotNull(currentProtocolParameters);
+        Assertions.assertNotNull(currentProtocolParameters.getProtocolParameters());
+        Assertions.assertEquals(currentProtocolParameters.getProtocolParameters().getPoolDeposit(),"500000000");
+        Assertions.assertEquals(currentProtocolParameters.getProtocolParameters().getCoinsPerUtxoByte(), "4310");
+        Assertions.assertNotNull(currentProtocolParameters.getProtocolParameters().getPoolRetirementEpochBound());
+        Assertions.assertNotNull(currentProtocolParameters.getProtocolParameters().getDesiredNumberOfPools());
     }
 
     @Test
@@ -74,6 +96,8 @@ class OgmiosWSClientIntegrationTest {
         EvaluateTxResponse evaluateTxResponse = ogmiosWSClient.evaluateTx(cborBytes);
         log.info(evaluateTxResponse.toString());
         Assertions.assertNotNull(evaluateTxResponse);
+        Assertions.assertNotNull(evaluateTxResponse.getEvaluationFailure());
+        Assertions.assertNotNull(evaluateTxResponse.getEvaluationResults());
     }
 
     @AfterAll

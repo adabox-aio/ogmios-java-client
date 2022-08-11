@@ -1,8 +1,8 @@
-package io.adabox.model.query.response;
+package io.adabox.model.query.response.models;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import lombok.Getter;
 import lombok.Setter;
-import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -12,22 +12,22 @@ import java.util.stream.Collectors;
 @Setter
 public class CostModels extends HashMap<String, HashMap<String, Long>> {
 
-    public static CostModels deserialize(JSONObject jsonObject) {
+    public static CostModels deserialize(JsonNode jsonObject) {
         CostModels costModels = new CostModels();
-        Iterator<String> keysIterator = jsonObject.keys();
+        Iterator<String> keysIterator = jsonObject.fieldNames();
         while (keysIterator.hasNext()) {
             String key = keysIterator.next();
-            costModels.put(key, deserializeMap(jsonObject.getJSONObject(key)));
+            costModels.put(key, deserializeMap(jsonObject.get(key)));
         }
         return costModels;
     }
 
-    private static HashMap<String, Long> deserializeMap(JSONObject jsonObject) {
+    private static HashMap<String, Long> deserializeMap(JsonNode jsonObject) {
         HashMap<String, Long> map = new HashMap<>();
-        Iterator<String> keysIterator = jsonObject.keys();
+        Iterator<String> keysIterator = jsonObject.fieldNames();
         while (keysIterator.hasNext()) {
             String key = keysIterator.next();
-            map.put(key, jsonObject.getLong(key));
+            map.put(key, jsonObject.get(key).longValue());
         }
         return map;
     }

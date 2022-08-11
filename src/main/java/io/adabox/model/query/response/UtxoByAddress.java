@@ -1,13 +1,13 @@
 package io.adabox.model.query.response;
 
-import io.adabox.model.query.Utxo;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import io.adabox.model.query.response.models.Utxo;
 import io.adabox.model.query.response.base.QueryResponse;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,11 +29,10 @@ public class UtxoByAddress extends QueryResponse {
         setUtxos(utxos);
     }
 
-    public static UtxoByAddress deserialize(JSONObject reflection, JSONArray result) {
+    public static UtxoByAddress deserialize(long msgId, JsonNode jsonNode) {
         List<Utxo> utxos = new ArrayList<>();
-        long msgId = reflection.getLong("msg_id");
-        for (Object o : result) {
-            utxos.add(Utxo.deserialize((JSONArray) o));
+        for (JsonNode node : jsonNode) {
+            utxos.add(Utxo.deserialize((ArrayNode) node));
         }
         return new UtxoByAddress(msgId, utxos);
     }

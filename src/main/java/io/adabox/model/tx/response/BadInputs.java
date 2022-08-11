@@ -1,11 +1,11 @@
 package io.adabox.model.tx.response;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -23,12 +23,12 @@ public class BadInputs extends TxError {
         super(TxErrorType.BAD_INPUTS);
     }
 
-    public static BadInputs deserialize(JSONArray jsonArray) {
+    public static BadInputs deserialize(ArrayNode jsonArray) {
         BadInputs badInputs = new BadInputs();
-        Iterator<Object> objectIterator = jsonArray.iterator();
+        Iterator<JsonNode> objectIterator = jsonArray.iterator();
         List<Input> badInputsList = new ArrayList<>();
         while (objectIterator.hasNext()) {
-            JSONObject jsonObject = (JSONObject) objectIterator.next();
+            JsonNode jsonObject = objectIterator.next();
             badInputsList.add(Input.deserialize(jsonObject));
         }
         badInputs.setBadInputsList(badInputsList);

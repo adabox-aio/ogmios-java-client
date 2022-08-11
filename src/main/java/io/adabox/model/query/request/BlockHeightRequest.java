@@ -5,9 +5,9 @@ import io.adabox.model.query.request.base.QueryType;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
-public class LedgerTipRequest extends QueryRequest {
+public class BlockHeightRequest extends QueryRequest {
 
-    private static final QueryType QUERY_TYPE = QueryType.LEDGER_TIP;
+    private static final QueryType QUERY_TYPE = QueryType.BLOCK_HEIGHT;
 
     public String getQueryArgs() {
         return "\""+QUERY_TYPE.getValue()+"\"";

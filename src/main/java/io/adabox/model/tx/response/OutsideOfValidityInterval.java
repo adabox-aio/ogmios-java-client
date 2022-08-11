@@ -1,10 +1,10 @@
 package io.adabox.model.tx.response;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.json.JSONObject;
 
 import java.math.BigInteger;
 
@@ -15,19 +15,19 @@ import java.math.BigInteger;
 public class OutsideOfValidityInterval extends TxError {
 
     private BigInteger currentSlot;
-    private Interval interval;
+    private ValidityInterval interval;
 
     public OutsideOfValidityInterval() {
         super(TxErrorType.OUTSIDE_OF_VALIDITY_INTERVAL);
     }
 
-    public static OutsideOfValidityInterval deserialize(JSONObject jsonObject) {
+    public static OutsideOfValidityInterval deserialize(JsonNode jsonObject) {
         OutsideOfValidityInterval outsideOfValidityInterval = new OutsideOfValidityInterval();
         if (jsonObject.has("currentSlot")) {
-            outsideOfValidityInterval.setCurrentSlot(jsonObject.getBigInteger("currentSlot"));
+            outsideOfValidityInterval.setCurrentSlot(jsonObject.get("currentSlot").bigIntegerValue());
         }
         if (jsonObject.has("interval")) {
-            outsideOfValidityInterval.setInterval(Interval.deserialize(jsonObject.getJSONObject("interval")));
+            outsideOfValidityInterval.setInterval(ValidityInterval.deserialize(jsonObject.get("interval")));
         }
         return outsideOfValidityInterval;
     }

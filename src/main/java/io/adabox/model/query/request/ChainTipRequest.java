@@ -5,9 +5,9 @@ import io.adabox.model.query.request.base.QueryType;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
-public class LedgerTipRequest extends QueryRequest {
+public class ChainTipRequest extends QueryRequest {
 
-    private static final QueryType QUERY_TYPE = QueryType.LEDGER_TIP;
+    private static final QueryType QUERY_TYPE = QueryType.CHAIN_TIP;
 
     public String getQueryArgs() {
         return "\""+QUERY_TYPE.getValue()+"\"";

@@ -1,4 +1,4 @@
-package io.adabox;
+package io.adabox.client;
 
 import io.adabox.model.base.Message;
 import io.adabox.model.base.Request;
@@ -16,7 +16,6 @@ import io.adabox.model.tx.request.SubmitTxRequest;
 import io.adabox.model.tx.response.EvaluateTxResponse;
 import io.adabox.model.tx.response.SubmitTxResponse;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ServerHandshake;
 
@@ -29,9 +28,9 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Slf4j
-public class OgmiosWSClient extends WebSocketClient implements LocalChainSync, LocalStateQuery, LocalTxSubmission {
+public class OgmiosWSClient extends WebSocketClient implements LocalTxSubmission, LocalStateQuery, LocalChainSync {
 
-    private static final long TIMEOUT = 5; // Sec
+    private static final long TIMEOUT = 60; // Sec
     private final AtomicLong msgId = new AtomicLong();
     private final ConcurrentHashMap<Long, BlockingQueue<Message>> blockingQueueConcurrentHashMap = new ConcurrentHashMap<>();
 
@@ -42,12 +41,12 @@ public class OgmiosWSClient extends WebSocketClient implements LocalChainSync, L
     @Override
     public void onOpen(ServerHandshake serverHandshake) {
         log.info("Connection Established!");
-        if (log.isDebugEnabled()) log.debug("onOpen -> ServerHandshake: {}", serverHandshake);
+        log.debug("onOpen -> ServerHandshake: {}", serverHandshake);
     }
 
     @Override
     public void onMessage(String message) {
-        if (log.isDebugEnabled()) log.debug("Received: {}", message);
+        log.debug("Received: {}", message);
         Message response = Message.deserialize(message);
         if (response == null) {
             log.error("Response is Null");
@@ -60,7 +59,8 @@ public class OgmiosWSClient extends WebSocketClient implements LocalChainSync, L
 
     @Override
     public void onClose(int code, String reason, boolean remote) {
-        log.info("Connection closed by {}, Code: {}{}", (remote ? "remote peer" : "client"), code, StringUtils.isEmpty(reason) ? reason : ", Reason: " + reason);
+        log.info("Connection closed by {}, Code: {}{}", (remote ? "remote peer" : "client"), code,
+                (reason == null || reason.isEmpty()) ? reason : ", Reason: " + reason);
     }
 
     @Override
@@ -96,15 +96,48 @@ public class OgmiosWSClient extends WebSocketClient implements LocalChainSync, L
         return null;
     }
 
-    /* LocalStateQuery */
+    /* LocalTxSubmission */
+
     @Override
-    public CurrentEpoch currentEpoch() {
-        return (CurrentEpoch) send(new CurrentEpochRequest());
+    public SubmitTxResponse submitTx(byte[] cborData) throws InvalidParameterException {
+        if (cborData.length == 0) {
+            throw new InvalidParameterException();
+        }
+        return (SubmitTxResponse) send(new SubmitTxRequest(cborData));
+    }
+
+    @Override
+    public EvaluateTxResponse evaluateTx(byte[] cborData) throws InvalidParameterException {
+        if (cborData.length == 0) {
+            throw new InvalidParameterException();
+        }
+        Response response = send(new EvaluateTxRequest(cborData));
+        if (response.getFault() == null)
+            return (EvaluateTxResponse) response;
+        else
+            throw new RuntimeException(response.toString());
+    }
+
+    /* LocalStateQuery */
+
+    @Override
+    public BlockHeight blockHeight() {
+        return (BlockHeight) send(new BlockHeightRequest());
+    }
+
+    @Override
+    public ChainTip chainTip() {
+        return (ChainTip) send(new ChainTipRequest());
     }
 
     @Override
     public CurrentProtocolParameters currentProtocolParameters() {
         return (CurrentProtocolParameters) send(new CurrentProtocolParametersRequest());
+    }
+
+    @Override
+    public CurrentEpoch currentEpoch() {
+        return (CurrentEpoch) send(new CurrentEpochRequest());
     }
 
     @Override
@@ -120,22 +153,5 @@ public class OgmiosWSClient extends WebSocketClient implements LocalChainSync, L
     @Override
     public GenesisConfig genesisConfig() {
         return (GenesisConfig) send(new GenesisConfigRequest());
-    }
-
-    /* LocalTxSubmission */
-    @Override
-    public SubmitTxResponse submitTx(byte[] cborData) throws InvalidParameterException {
-        if (cborData.length == 0) {
-            throw new InvalidParameterException();
-        }
-        return (SubmitTxResponse) send(new SubmitTxRequest(cborData));
-    }
-
-    @Override
-    public EvaluateTxResponse evaluateTx(byte[] cborData) throws InvalidParameterException {
-        if (cborData.length == 0) {
-            throw new InvalidParameterException();
-        }
-        return (EvaluateTxResponse) send(new EvaluateTxRequest(cborData));
     }
 }
