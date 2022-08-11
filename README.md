@@ -52,7 +52,7 @@ Below is a brief guide to using dependency management tools like maven or gradle
 To use maven add this dependency to your pom.xml:
 ```xml
 <dependency>
-    <groupId>io.github.adabox-aio</groupId>
+    <groupId>io.adabox</groupId>
     <artifactId>ogmios-java-client</artifactId>
     <version>1.0.0</version>
 </dependency>
@@ -65,7 +65,7 @@ mavenCentral()
 ```
 Then you can just add the latest version to your build.
 ```xml
-compile "io.github.adabox-aio:ogmios-java-client:1.0.0"
+compile "io.adabox:ogmios-java-client:1.0.0"
 ```
 Or this option if you use gradle 7.0 and above.
 ```xml
