@@ -2,14 +2,16 @@ package io.adabox.model.tx.response;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 @ToString
 public class SubmitFail {
 

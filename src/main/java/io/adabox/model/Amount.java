@@ -1,11 +1,13 @@
 package io.adabox.model;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigInteger;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 public class Amount {
 

@@ -1,11 +1,13 @@
 package io.adabox.model.query.response.models;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 
-@Data
+@Getter
+@Setter
 public class ProtocolParameters {
 
     private Integer minFeeCoefficient;

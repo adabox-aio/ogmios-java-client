@@ -1,10 +1,9 @@
 package io.adabox.model.tx.response;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.ToString;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
 @ToString
 @AllArgsConstructor
 public class EvaluationFailure {

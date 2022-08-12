@@ -1,10 +1,12 @@
 package io.adabox.model.tx.response;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
-@Data
+@Getter
+@Setter
 @ToString
 public class TxError {
 
