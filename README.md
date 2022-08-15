@@ -46,7 +46,7 @@ The Java library allows synchronous communication with **Ogmios** Server by inte
 | `currentProtocolParameters`  | The current protocol parameters.                                                 | :heavy_check_mark: |
 | `delegationsAndRewards`      | Current delegation settings and rewards of given reward accounts.                | :heavy_check_mark: |
 | `eraStart`                   | The information regarding the beginning of the current era.                      | :heavy_check_mark: |
-| `eraSummaries`               | Era bounds and slotting parameters details, required for proper slot arithmetic. |        :x:         |
+| `eraSummaries`               | Era bounds and slotting parameters details, required for proper slot arithmetic. | :heavy_check_mark: |
 | `genesisConfig`              | Get a compact version of the era's genesis configuration.                        | :heavy_check_mark: |
 | `ledgerTip`                  | The most recent block tip known of the ledger.                                   | :heavy_check_mark: |
 | `nonMyopicMemberRewards`     | Non-myopic member rewards for each pool. Used in ranking.                        |        :x:         |

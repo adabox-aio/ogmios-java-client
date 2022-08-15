@@ -152,6 +152,11 @@ public class OgmiosWSClient extends WebSocketClient implements LocalTxSubmission
     }
 
     @Override
+    public EraSummaries eraSummaries() {
+        return (EraSummaries) send(new EraSummariesRequest());
+    }
+
+    @Override
     public CurrentEpoch currentEpoch() {
         return (CurrentEpoch) send(new CurrentEpochRequest());
     }

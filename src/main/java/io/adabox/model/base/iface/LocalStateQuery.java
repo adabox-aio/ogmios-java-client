@@ -52,6 +52,13 @@ public interface LocalStateQuery {
     EraStart eraStart();
 
     /**
+     * Era bounds and slotting parameters details, required for proper slot arithmetic.
+     *
+     * @return {@link EraSummaries}
+     */
+    EraSummaries eraSummaries();
+
+    /**
      * Get the current ledger tip. Will resolve the acquired point if any.
      *
      * @return {@link PointOrOrigin}
