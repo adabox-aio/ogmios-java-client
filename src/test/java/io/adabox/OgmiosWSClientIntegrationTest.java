@@ -71,6 +71,13 @@ class OgmiosWSClientIntegrationTest {
     }
 
     @Test
+    void eraStartTest() {
+        EraStart eraStart = ogmiosWSClient.eraStart();
+        log.info(eraStart.toString());
+        Assertions.assertNotNull(eraStart);
+    }
+
+    @Test
     void ledgerTipTest() {
         LedgerTip ledgerTip = ogmiosWSClient.ledgerTip();
         log.info(ledgerTip.toString());

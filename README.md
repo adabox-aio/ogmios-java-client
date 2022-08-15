@@ -38,26 +38,26 @@ The Java library allows synchronous communication with **Ogmios** Server by inte
 - Structured Java Objects logging
 - Full ledger state query support:
   
-| Query                        | Result                                                                            |     Supported      |
-|------------------------------|-----------------------------------------------------------------------------------|:------------------:|
-| `blockHeight`                | The chain's highest block number.                                                 | :heavy_check_mark: |
-| `chainTip`                   | The chain's current tip.                                                          | :heavy_check_mark: |
-| `currentEpoch`               | The current epoch of the ledger.                                                  | :heavy_check_mark: |
-| `currentProtocolParameters`  | The current protocol parameters.                                                  | :heavy_check_mark: |
-| `delegationsAndRewards`      | Current delegation settings and rewards of given reward accounts.                 | :heavy_check_mark: |
-| `eraStart`                   | The information regarding the beginning of the current era.                       |        :x:         |
-| `eraSummaries`               | Era bounds and slotting parameters details, required for proper slot arithmetic.  |        :x:         |
-| `genesisConfig`              | Get a compact version of the era's genesis configuration.                         | :heavy_check_mark: |
-| `ledgerTip`                  | The most recent block tip known of the ledger.                                    | :heavy_check_mark: |
-| `nonMyopicMemberRewards`     | Non-myopic member rewards for each pool. Used in ranking.                         |        :x:         |
-| `poolIds`                    | The list of all pool identifiers currently registered and active.                 |        :x:         |
-| `poolParameters`             | Stake pool parameters submitted with registration certificates.                   |        :x:         |
-| `poolsRanking`               | Retrieve stake pools ranking (a.k.a desirabilities).                              |        :x:         |
-| `proposedProtocolParameters` | The last update proposal w.r.t. protocol parameters, if any.                      |        :x:         |
-| `rewardsProvenance'`         | Get details about rewards calculation for the ongoing epoch.                      |        :x:         |
-| `stakeDistribution`          | Distribution of the stake across all known stake pools.                           |        :x:         |
-| `systemStart`                | The chain's start time (UTC).                                                     |        :x:         |
-| `utxo`                       | Current UTXO, possibly filtered by output reference.                              | :heavy_check_mark: |
+| Query                        | Result                                                                           |     Supported      |
+|------------------------------|----------------------------------------------------------------------------------|:------------------:|
+| `blockHeight`                | The chain's highest block number.                                                | :heavy_check_mark: |
+| `chainTip`                   | The chain's current tip.                                                         | :heavy_check_mark: |
+| `currentEpoch`               | The current epoch of the ledger.                                                 | :heavy_check_mark: |
+| `currentProtocolParameters`  | The current protocol parameters.                                                 | :heavy_check_mark: |
+| `delegationsAndRewards`      | Current delegation settings and rewards of given reward accounts.                | :heavy_check_mark: |
+| `eraStart`                   | The information regarding the beginning of the current era.                      | :heavy_check_mark: |
+| `eraSummaries`               | Era bounds and slotting parameters details, required for proper slot arithmetic. |        :x:         |
+| `genesisConfig`              | Get a compact version of the era's genesis configuration.                        | :heavy_check_mark: |
+| `ledgerTip`                  | The most recent block tip known of the ledger.                                   | :heavy_check_mark: |
+| `nonMyopicMemberRewards`     | Non-myopic member rewards for each pool. Used in ranking.                        |        :x:         |
+| `poolIds`                    | The list of all pool identifiers currently registered and active.                |        :x:         |
+| `poolParameters`             | Stake pool parameters submitted with registration certificates.                  |        :x:         |
+| `poolsRanking`               | Retrieve stake pools ranking (a.k.a desirability).                               |        :x:         |
+| `proposedProtocolParameters` | The last update proposal w.r.t. protocol parameters, if any.                     |        :x:         |
+| `rewardsProvenance`          | Get details about rewards calculation for the ongoing epoch.                     |        :x:         |
+| `stakeDistribution`          | Distribution of the stake across all known stake pools.                          |        :x:         |
+| `systemStart`                | The chain's start time (UTC).                                                    |        :x:         |
+| `utxo`                       | Current UTXO, possibly filtered by output reference.                             | :heavy_check_mark: |
 
 ## Getting Started
 

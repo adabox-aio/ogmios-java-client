@@ -7,6 +7,7 @@ public enum QueryType {
     CURRENT_EPOCH("currentEpoch"),
     CURRENT_PROTOCOL_PARAMETERS("currentProtocolParameters"),
     DELEGATIONS_AND_REWARDS("delegationsAndRewards"),
+    ERA_START("eraStart"),
     GENESIS_CONFIG("genesisConfig"),
     LEDGER_TIP("ledgerTip"),
     UTXO("utxo");

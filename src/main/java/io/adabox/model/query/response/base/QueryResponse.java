@@ -25,6 +25,8 @@ public class QueryResponse extends Response {
                 return CurrentProtocolParameters.deserialize(msgId, jsonNode);
             case DELEGATIONS_AND_REWARDS:
                 return DelegationsAndRewards.deserialize(msgId, jsonNode);
+            case ERA_START:
+                return EraStart.deserialize(msgId, jsonNode);
             case GENESIS_CONFIG:
                 return GenesisConfig.deserialize(msgId, jsonNode);
             case LEDGER_TIP:
