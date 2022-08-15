@@ -11,6 +11,7 @@ public enum QueryType {
     ERA_SUMMARIES("eraSummaries"),
     GENESIS_CONFIG("genesisConfig"),
     LEDGER_TIP("ledgerTip"),
+    SYSTEM_START("systemStart"),
     UTXO("utxo");
 
     private final String value;

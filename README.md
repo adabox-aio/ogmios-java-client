@@ -56,7 +56,7 @@ The Java library allows synchronous communication with **Ogmios** Server by inte
 | `proposedProtocolParameters` | The last update proposal w.r.t. protocol parameters, if any.                     |        :x:         |
 | `rewardsProvenance`          | Get details about rewards calculation for the ongoing epoch.                     |        :x:         |
 | `stakeDistribution`          | Distribution of the stake across all known stake pools.                          |        :x:         |
-| `systemStart`                | The chain's start time (UTC).                                                    |        :x:         |
+| `systemStart`                | The chain's start time (UTC).                                                    | :heavy_check_mark: |
 | `utxo`                       | Current UTXO, possibly filtered by output reference.                             | :heavy_check_mark: |
 
 ## Getting Started

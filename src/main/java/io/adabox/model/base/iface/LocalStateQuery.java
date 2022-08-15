@@ -59,11 +59,24 @@ public interface LocalStateQuery {
     EraSummaries eraSummaries();
 
     /**
+     * Get the Shelley's genesis configuration.
+     *
+     * @return {@link GenesisConfig}
+     */
+    GenesisConfig genesisConfig();
+
+    /**
      * Get the current ledger tip. Will resolve the acquired point if any.
      *
      * @return {@link PointOrOrigin}
      */
     LedgerTip ledgerTip();
+
+    /**
+     * The chain's start time (UTC).
+     * @return {@link SystemStart}
+     */
+    SystemStart systemStart();
 
     /**
      * Queries the Utxo associated with some Address.
@@ -72,11 +85,4 @@ public interface LocalStateQuery {
      * @return {@link UtxoByAddress}
      */
     UtxoByAddress utxoByAddress(String address) throws InvalidParameterException;
-
-    /**
-     * Get the Shelley's genesis configuration.
-     *
-     * @return {@link GenesisConfig}
-     */
-    GenesisConfig genesisConfig();
 }

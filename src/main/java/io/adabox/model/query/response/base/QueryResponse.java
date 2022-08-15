@@ -33,6 +33,8 @@ public class QueryResponse extends Response {
                 return GenesisConfig.deserialize(msgId, jsonNode);
             case LEDGER_TIP:
                 return LedgerTip.deserialize(msgId, jsonNode);
+            case SYSTEM_START:
+                return SystemStart.deserialize(msgId, jsonNode);
             case UTXO:
                 return UtxoByAddress.deserialize(msgId, jsonNode);
         }

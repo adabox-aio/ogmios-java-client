@@ -85,6 +85,13 @@ class OgmiosWSClientIntegrationTest {
     }
 
     @Test
+    void genesisConfig() {
+        GenesisConfig genesisConfig = ogmiosWSClient.genesisConfig();
+        log.info(genesisConfig.toString());
+        Assertions.assertNotNull(genesisConfig);
+    }
+
+    @Test
     void ledgerTipTest() {
         LedgerTip ledgerTip = ogmiosWSClient.ledgerTip();
         log.info(ledgerTip.toString());
@@ -92,17 +99,17 @@ class OgmiosWSClientIntegrationTest {
     }
 
     @Test
+    void systemStartTest() {
+        SystemStart systemStart = ogmiosWSClient.systemStart();
+        log.info(systemStart.toString());
+        Assertions.assertNotNull(systemStart);
+    }
+
+    @Test
     void utxoByAddressTest() {
         UtxoByAddress utxoByAddress = ogmiosWSClient.utxoByAddress("addr_test1qz0xcyfuwkf6a2c8g0mhjdaxxvtuw2u04dqjx7tt2gwaq5522z65y7wauh6rryspdn7xrg5u7nkf5ung6qk5dn3a7u8syvce7n");
         log.info(utxoByAddress.toString());
         Assertions.assertNotNull(utxoByAddress);
-    }
-
-    @Test
-    void genesisConfig() {
-        GenesisConfig genesisConfig = ogmiosWSClient.genesisConfig();
-        log.info(genesisConfig.toString());
-        Assertions.assertNotNull(genesisConfig);
     }
 
     @Test

@@ -162,17 +162,22 @@ public class OgmiosWSClient extends WebSocketClient implements LocalTxSubmission
     }
 
     @Override
+    public GenesisConfig genesisConfig() {
+        return (GenesisConfig) send(new GenesisConfigRequest());
+    }
+
+    @Override
     public LedgerTip ledgerTip() {
         return (LedgerTip) send(new LedgerTipRequest());
     }
 
     @Override
-    public UtxoByAddress utxoByAddress(String address) throws InvalidParameterException {
-        return (UtxoByAddress) send(new UtxoByAddressRequest(address));
+    public SystemStart systemStart() {
+        return (SystemStart) send(new SystemStartRequest());
     }
 
     @Override
-    public GenesisConfig genesisConfig() {
-        return (GenesisConfig) send(new GenesisConfigRequest());
+    public UtxoByAddress utxoByAddress(String address) throws InvalidParameterException {
+        return (UtxoByAddress) send(new UtxoByAddressRequest(address));
     }
 }
