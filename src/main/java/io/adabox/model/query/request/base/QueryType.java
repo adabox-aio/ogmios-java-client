@@ -4,11 +4,12 @@ public enum QueryType {
 
     BLOCK_HEIGHT("blockHeight"),
     CHAIN_TIP("chainTip"),
-    LEDGER_TIP("ledgerTip"),
-    UTXO("utxo"),
-    GENESIS_CONFIG("genesisConfig"),
     CURRENT_EPOCH("currentEpoch"),
-    CURRENT_PROTOCOL_PARAMETERS("currentProtocolParameters");
+    CURRENT_PROTOCOL_PARAMETERS("currentProtocolParameters"),
+    DELEGATIONS_AND_REWARDS("delegationsAndRewards"),
+    GENESIS_CONFIG("genesisConfig"),
+    LEDGER_TIP("ledgerTip"),
+    UTXO("utxo");
 
     private final String value;
 

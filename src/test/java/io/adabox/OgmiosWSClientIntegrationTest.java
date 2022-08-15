@@ -12,6 +12,7 @@ import javax.net.ssl.SSLSocketFactory;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Base64;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
@@ -58,6 +59,15 @@ class OgmiosWSClientIntegrationTest {
         Assertions.assertEquals(currentProtocolParameters.getProtocolParameters().getCoinsPerUtxoByte(), "4310");
         Assertions.assertNotNull(currentProtocolParameters.getProtocolParameters().getPoolRetirementEpochBound());
         Assertions.assertNotNull(currentProtocolParameters.getProtocolParameters().getDesiredNumberOfPools());
+    }
+
+    @Test
+    void delegationsAndRewardsTest() {
+        List<String> rewardAccounts = List.of("7c16240714ea0e12b41a914f2945784ac494bb19573f0ca61a08afa8", "7c16240714ea0e12b41a914f2945784ac494bb19573f0ca61a08afa8");
+        DelegationsAndRewards delegationsAndRewards = ogmiosWSClient.delegationsAndRewards(rewardAccounts);
+        log.info(delegationsAndRewards.toString());
+        Assertions.assertNotNull(delegationsAndRewards);
+        Assertions.assertNotNull(delegationsAndRewards.getDelegationAndRewardMap());
     }
 
     @Test

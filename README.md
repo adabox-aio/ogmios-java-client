@@ -44,7 +44,7 @@ The Java library allows synchronous communication with **Ogmios** Server by inte
 | `chainTip`                   | The chain's current tip.                                                          | :heavy_check_mark: |
 | `currentEpoch`               | The current epoch of the ledger.                                                  | :heavy_check_mark: |
 | `currentProtocolParameters`  | The current protocol parameters.                                                  | :heavy_check_mark: |
-| `delegationsAndRewards`      | Current delegation settings and rewards of given reward accounts.                 |        :x:         |
+| `delegationsAndRewards`      | Current delegation settings and rewards of given reward accounts.                 | :heavy_check_mark: |
 | `eraStart`                   | The information regarding the beginning of the current era.                       |        :x:         |
 | `eraSummaries`               | Era bounds and slotting parameters details, required for proper slot arithmetic.  |        :x:         |
 | `genesisConfig`              | Get a compact version of the era's genesis configuration.                         | :heavy_check_mark: |

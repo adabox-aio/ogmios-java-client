@@ -19,16 +19,18 @@ public class QueryResponse extends Response {
                 return BlockHeight.deserialize(msgId, jsonNode);
             case CHAIN_TIP:
                 return ChainTip.deserialize(msgId, jsonNode);
-            case LEDGER_TIP:
-                return LedgerTip.deserialize(msgId, jsonNode);
-            case UTXO:
-                return UtxoByAddress.deserialize(msgId, jsonNode);
-            case GENESIS_CONFIG:
-                return GenesisConfig.deserialize(msgId, jsonNode);
             case CURRENT_EPOCH:
                 return CurrentEpoch.deserialize(msgId, jsonNode);
             case CURRENT_PROTOCOL_PARAMETERS:
                 return CurrentProtocolParameters.deserialize(msgId, jsonNode);
+            case DELEGATIONS_AND_REWARDS:
+                return DelegationsAndRewards.deserialize(msgId, jsonNode);
+            case GENESIS_CONFIG:
+                return GenesisConfig.deserialize(msgId, jsonNode);
+            case LEDGER_TIP:
+                return LedgerTip.deserialize(msgId, jsonNode);
+            case UTXO:
+                return UtxoByAddress.deserialize(msgId, jsonNode);
         }
         return null;
     }

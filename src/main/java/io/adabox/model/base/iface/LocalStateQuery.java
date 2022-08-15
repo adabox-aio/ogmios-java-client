@@ -4,6 +4,7 @@ import io.adabox.model.query.response.*;
 import io.adabox.model.query.response.models.PointOrOrigin;
 
 import java.security.InvalidParameterException;
+import java.util.List;
 
 public interface LocalStateQuery {
 
@@ -30,6 +31,14 @@ public interface LocalStateQuery {
      * @return {@link CurrentProtocolParameters}
      */
     CurrentProtocolParameters currentProtocolParameters();
+
+    /**
+     * Current delegation settings and rewards of given reward accounts.
+     *
+     * @param rewardAccounts List of A Blake2b 28-byte digest of a verification key or a script.
+     * @return {@link DelegationsAndRewards}
+     */
+    DelegationsAndRewards delegationsAndRewards(List<String> rewardAccounts);
 
     /**
      * Get the current ledger tip. Will resolve the acquired point if any.

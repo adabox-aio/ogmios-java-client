@@ -1,5 +1,6 @@
 package io.adabox.client;
 
+import io.adabox.model.base.Error;
 import io.adabox.model.base.Message;
 import io.adabox.model.base.Request;
 import io.adabox.model.base.Response;
@@ -21,6 +22,7 @@ import org.java_websocket.handshake.ServerHandshake;
 
 import java.net.URI;
 import java.security.InvalidParameterException;
+import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ConcurrentHashMap;
@@ -47,9 +49,13 @@ public class OgmiosWSClient extends WebSocketClient implements LocalTxSubmission
     @Override
     public void onMessage(String message) {
         log.debug("Received: {}", message);
-        Message response = Message.deserialize(message);
+        Response response = Response.deserialize(message);
         if (response == null) {
             log.error("Response is Null");
+            return;
+        }
+        if (response.getFault() != null) {
+            log.error("Error: {}", ((Error) response).getErrorMsg());
             return;
         }
         if (blockingQueueConcurrentHashMap.get(response.getMsgId()).offer(response) && log.isDebugEnabled()) {
@@ -133,6 +139,11 @@ public class OgmiosWSClient extends WebSocketClient implements LocalTxSubmission
     @Override
     public CurrentProtocolParameters currentProtocolParameters() {
         return (CurrentProtocolParameters) send(new CurrentProtocolParametersRequest());
+    }
+
+    @Override
+    public DelegationsAndRewards delegationsAndRewards(List<String> rewardAccounts) {
+        return (DelegationsAndRewards) send(new DelegationsAndRewardsRequest(rewardAccounts));
     }
 
     @Override
