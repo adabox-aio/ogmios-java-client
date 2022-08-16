@@ -39,6 +39,8 @@ public class QueryResponse extends Response {
                 return PoolIds.deserialize(msgId, jsonNode);
             case POOL_PARAMETERS:
                 return PoolParameters.deserialize(msgId, jsonNode);
+            case PROPOSED_PROTOCOL_PARAMETERS:
+                return ProposedProtocolParameters.deserialize(msgId, jsonNode);
             case SYSTEM_START:
                 return SystemStart.deserialize(msgId, jsonNode);
             case UTXO:

@@ -108,6 +108,13 @@ public interface LocalStateQuery {
     PoolParameters poolParameters(List<String> bech32PoolIds);
 
     /**
+     * The last update proposal w.r.t. protocol parameters, if any.
+     *
+     * @return {@link ProposedProtocolParameters}
+     */
+    ProposedProtocolParameters proposedProtocolParameters();
+
+    /**
      * The chain's start time (UTC).
      *
      * @return {@link SystemStart}

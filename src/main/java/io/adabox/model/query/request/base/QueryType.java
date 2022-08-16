@@ -14,6 +14,7 @@ public enum QueryType {
     NON_MYOPIC_MEMBER_REWARDS("nonMyopicMemberRewards"),
     POOL_IDS("poolIds"),
     POOL_PARAMETERS("poolParameters"),
+    PROPOSED_PROTOCOL_PARAMETERS("proposedProtocolParameters"),
     SYSTEM_START("systemStart"),
     UTXO("utxo");
 
