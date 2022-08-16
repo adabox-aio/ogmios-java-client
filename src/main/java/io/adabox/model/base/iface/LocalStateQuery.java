@@ -129,6 +129,13 @@ public interface LocalStateQuery {
     RewardsProvenance rewardsProvenance();
 
     /**
+     * Distribution of the stake across all known stake pools.
+     *
+     * @return {@link StakeDistribution}
+     */
+    StakeDistribution stakeDistribution();
+
+    /**
      * The chain's start time (UTC).
      *
      * @return {@link SystemStart}

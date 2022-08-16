@@ -207,6 +207,11 @@ public class OgmiosWSClient extends WebSocketClient implements LocalTxSubmission
     }
 
     @Override
+    public StakeDistribution stakeDistribution() {
+        return (StakeDistribution) send(new StakeDistributionRequest());
+    }
+
+    @Override
     public SystemStart systemStart() {
         return (SystemStart) send(new SystemStartRequest());
     }

@@ -45,6 +45,8 @@ public class QueryResponse extends Response {
                 return ProposedProtocolParameters.deserialize(msgId, jsonNode);
             case REWARDS_PROVENANCE:
                 return RewardsProvenance.deserialize(msgId, jsonNode);
+            case STAKE_DISTRIBUTION:
+                return StakeDistribution.deserialize(msgId, jsonNode);
             case SYSTEM_START:
                 return SystemStart.deserialize(msgId, jsonNode);
             case UTXO:

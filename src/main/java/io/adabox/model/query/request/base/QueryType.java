@@ -17,6 +17,7 @@ public enum QueryType {
     POOLS_RANKING("poolsRanking"),
     PROPOSED_PROTOCOL_PARAMETERS("proposedProtocolParameters"),
     REWARDS_PROVENANCE("rewardsProvenance"),
+    STAKE_DISTRIBUTION("stakeDistribution"),
     SYSTEM_START("systemStart"),
     UTXO("utxo");
 

@@ -158,6 +158,13 @@ class OgmiosWSClientIntegrationTest {
     }
 
     @Test
+    void stakeDistributionTest() {
+        StakeDistribution stakeDistribution = ogmiosTestnetClient.stakeDistribution();
+        log.info(stakeDistribution.toString());
+        Assertions.assertNotNull(stakeDistribution);
+    }
+
+    @Test
     void systemStartTest() {
         SystemStart systemStart = ogmiosTestnetClient.systemStart();
         log.info(systemStart.toString());
