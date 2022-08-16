@@ -28,11 +28,11 @@
 It offers a **WebSocket API** that enables local clients to speak [Ouroboros' mini-protocols](https://hydra.iohk.io/build/1070091/download/1/network.pdf#chapter.3) via **JSON/RPC**.
 
 ## Overview
-**Ogmios Java Client** is a java library that can be used to convert Java Objects into their **Ogmios** Requests **JSON/RPC** representation. It can also be used to convert **Ogmios JSON/RPC** Responses to their equivalent Java objects. <br>
+**Ogmios Java Client** is a Java library that can be used to convert Java Objects into their **Ogmios** Requests **JSON/RPC** representation. It can also be used to convert **Ogmios JSON/RPC** Responses to their equivalent Java objects. <br>
 The Java library allows synchronous communication with **Ogmios** Server by interacting with a Websocket client connection using a timeout parameter. <br>
 
 ## Features
-- Synchronous messaging using java objects
+- Synchronous messaging using Java objects
 - Transaction submission with enhanced error messages
 - Transaction Evaluation
 - Structured Java Objects logging
