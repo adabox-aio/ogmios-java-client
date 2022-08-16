@@ -54,7 +54,7 @@ The Java library allows synchronous communication with **Ogmios** Server by inte
 | `poolParameters`             | Stake pool parameters submitted with registration certificates.                  | :heavy_check_mark: |
 | `poolsRanking`               | Retrieve stake pools ranking (a.k.a desirability).                               |        :x:         |
 | `proposedProtocolParameters` | The last update proposal w.r.t. protocol parameters, if any.                     | :heavy_check_mark: |
-| `rewardsProvenance`          | Get details about rewards calculation for the ongoing epoch.                     |        :x:         |
+| `rewardsProvenance`          | Get details about rewards calculation for the ongoing epoch.                     | :heavy_check_mark: |
 | `stakeDistribution`          | Distribution of the stake across all known stake pools.                          |        :x:         |
 | `systemStart`                | The chain's start time (UTC).                                                    | :heavy_check_mark: |
 | `utxo`                       | Current UTXO, possibly filtered by output reference.                             | :heavy_check_mark: |

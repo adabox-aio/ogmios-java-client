@@ -144,6 +144,13 @@ class OgmiosWSClientIntegrationTest {
     }
 
     @Test
+    void rewardsProvenanceTest() {
+        RewardsProvenance rewardsProvenance = ogmiosMainnetClient.rewardsProvenance();
+        log.info(rewardsProvenance.toString());
+        Assertions.assertNotNull(rewardsProvenance);
+    }
+
+    @Test
     void systemStartTest() {
         SystemStart systemStart = ogmiosTestnetClient.systemStart();
         log.info(systemStart.toString());

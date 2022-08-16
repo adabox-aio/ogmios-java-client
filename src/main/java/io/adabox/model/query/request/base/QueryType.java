@@ -15,6 +15,7 @@ public enum QueryType {
     POOL_IDS("poolIds"),
     POOL_PARAMETERS("poolParameters"),
     PROPOSED_PROTOCOL_PARAMETERS("proposedProtocolParameters"),
+    REWARDS_PROVENANCE("rewardsProvenance"),
     SYSTEM_START("systemStart"),
     UTXO("utxo");
 

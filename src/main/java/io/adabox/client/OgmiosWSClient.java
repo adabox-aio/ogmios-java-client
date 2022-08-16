@@ -197,6 +197,11 @@ public class OgmiosWSClient extends WebSocketClient implements LocalTxSubmission
     }
 
     @Override
+    public RewardsProvenance rewardsProvenance() {
+        return (RewardsProvenance) send(new RewardsProvenanceRequest());
+    }
+
+    @Override
     public SystemStart systemStart() {
         return (SystemStart) send(new SystemStartRequest());
     }

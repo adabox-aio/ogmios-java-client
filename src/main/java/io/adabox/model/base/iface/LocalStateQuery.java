@@ -115,6 +115,13 @@ public interface LocalStateQuery {
     ProposedProtocolParameters proposedProtocolParameters();
 
     /**
+     * Get details about rewards calculation for the ongoing epoch.
+     *
+     * @return {@link RewardsProvenance}
+     */
+    RewardsProvenance rewardsProvenance();
+
+    /**
      * The chain's start time (UTC).
      *
      * @return {@link SystemStart}
