@@ -93,7 +93,7 @@ implementation io.github.adabox-aio:ogmios-java-client:1.0.0'
 | Network | URL                                        |
 |---------|--------------------------------------------|
 | Mainnet | `wss://ogmios-api.mainnet.dandelion.link/` |
-| Testnet | `wss:/ogmios-api.testnet.dandelion.link/`  |
+| Testnet | `wss://ogmios-api.testnet.dandelion.link/` |
 
 ### Initialize Secured Ogmios Websocket Client
 ```java 
