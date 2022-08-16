@@ -34,7 +34,7 @@ public class Response extends Message {
             if (rawResponse.getType().equals("jsonwsp/fault")) {
                 Error error = new Error(msgId);
                 error.setFault(rawResponse.getFault());
-                if (rawResponse.getResult().has("string")) {
+                if (rawResponse.getFault().has("string")) {
                     error.setErrorMsg(rawResponse.getFault().get("string").asText());
                 }
                 return error;

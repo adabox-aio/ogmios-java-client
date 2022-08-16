@@ -108,6 +108,15 @@ class OgmiosWSClientIntegrationTest {
     }
 
     @Test
+    void nonMyopicMemberRewardsByAmountsTest() {
+        List<Integer> amounts = List.of(42000000);
+        NonMyopicMemberRewards nonMyopicMemberRewards = ogmiosWSClient.nonMyopicMemberRewardsByAmounts(amounts);
+        log.info(nonMyopicMemberRewards.toString());
+        Assertions.assertNotNull(nonMyopicMemberRewards);
+        Assertions.assertNotNull(nonMyopicMemberRewards.getNonMyopicMemberRewardsMap());
+    }
+
+    @Test
     void systemStartTest() {
         SystemStart systemStart = ogmiosWSClient.systemStart();
         log.info(systemStart.toString());

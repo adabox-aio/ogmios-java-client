@@ -177,6 +177,11 @@ public class OgmiosWSClient extends WebSocketClient implements LocalTxSubmission
     }
 
     @Override
+    public NonMyopicMemberRewards nonMyopicMemberRewardsByAmounts(List<Integer> amounts) {
+        return (NonMyopicMemberRewards) send(new NonMyopicMemberRewardsAmountsRequest(amounts));
+    }
+
+    @Override
     public SystemStart systemStart() {
         return (SystemStart) send(new SystemStartRequest());
     }

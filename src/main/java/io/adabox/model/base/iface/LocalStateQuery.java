@@ -83,6 +83,16 @@ public interface LocalStateQuery {
     NonMyopicMemberRewards nonMyopicMemberRewardsByCredentials(List<String> credentials);
 
     /**
+     * Rewards that can be expected assuming a pool is fully saturated. Such rewards are said non-myopic,
+     * in opposition to short-sighted rewards looking at immediate benefits. Keys of the map can be either Lovelace
+     * amounts or account credentials depending on the query.
+     *
+     * @param amounts List of lovelace amounts.
+     * @return {@link NonMyopicMemberRewards}
+     */
+    NonMyopicMemberRewards nonMyopicMemberRewardsByAmounts(List<Integer> amounts);
+
+    /**
      * The chain's start time (UTC).
      * @return {@link SystemStart}
      */
