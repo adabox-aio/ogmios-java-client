@@ -142,8 +142,8 @@ public class OgmiosWSClient extends WebSocketClient implements LocalTxSubmission
     }
 
     @Override
-    public DelegationsAndRewards delegationsAndRewards(List<String> rewardAccounts) {
-        return (DelegationsAndRewards) send(new DelegationsAndRewardsRequest(rewardAccounts));
+    public DelegationsAndRewards delegationsAndRewards(List<String> credentials) {
+        return (DelegationsAndRewards) send(new DelegationsAndRewardsRequest(credentials));
     }
 
     @Override
@@ -169,6 +169,11 @@ public class OgmiosWSClient extends WebSocketClient implements LocalTxSubmission
     @Override
     public LedgerTip ledgerTip() {
         return (LedgerTip) send(new LedgerTipRequest());
+    }
+
+    @Override
+    public NonMyopicMemberRewards nonMyopicMemberRewardsByCredentials(List<String> credentials) {
+        return (NonMyopicMemberRewards) send(new NonMyopicMemberRewardsRequest(credentials));
     }
 
     @Override

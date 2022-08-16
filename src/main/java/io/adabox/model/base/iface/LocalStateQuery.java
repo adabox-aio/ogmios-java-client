@@ -39,10 +39,10 @@ public interface LocalStateQuery {
     /**
      * Current delegation settings and rewards of given reward accounts.
      *
-     * @param rewardAccounts List of A Blake2b 28-byte digest of a verification key or a script.
+     * @param credentials List of A Blake2b 28-byte digest of a verification key or a script.
      * @return {@link DelegationsAndRewards}
      */
-    DelegationsAndRewards delegationsAndRewards(List<String> rewardAccounts);
+    DelegationsAndRewards delegationsAndRewards(List<String> credentials);
 
     /**
      * The information regarding the beginning of the current era.
@@ -71,6 +71,16 @@ public interface LocalStateQuery {
      * @return {@link PointOrOrigin}
      */
     LedgerTip ledgerTip();
+
+    /**
+     * Rewards that can be expected assuming a pool is fully saturated. Such rewards are said non-myopic,
+     * in opposition to short-sighted rewards looking at immediate benefits. Keys of the map can be either Lovelace
+     * amounts or account credentials depending on the query.
+     *
+     * @param credentials List of A Blake2b 28-byte digest of a verification key or a script.
+     * @return {@link NonMyopicMemberRewards}
+     */
+    NonMyopicMemberRewards nonMyopicMemberRewardsByCredentials(List<String> credentials);
 
     /**
      * The chain's start time (UTC).

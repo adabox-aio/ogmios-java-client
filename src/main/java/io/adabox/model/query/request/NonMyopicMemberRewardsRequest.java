@@ -8,9 +8,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @AllArgsConstructor
-public class DelegationsAndRewardsRequest extends QueryRequest {
+public class NonMyopicMemberRewardsRequest extends QueryRequest {
 
-    private static final QueryType QUERY_TYPE = QueryType.DELEGATIONS_AND_REWARDS;
+    private static final QueryType QUERY_TYPE = QueryType.NON_MYOPIC_MEMBER_REWARDS;
     private final List<String> credentials;
 
     public String getQueryArgs() {

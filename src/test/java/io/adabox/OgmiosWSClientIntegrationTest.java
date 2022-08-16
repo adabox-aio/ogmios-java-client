@@ -63,8 +63,8 @@ class OgmiosWSClientIntegrationTest {
 
     @Test
     void delegationsAndRewardsTest() {
-        List<String> rewardAccounts = List.of("7c16240714ea0e12b41a914f2945784ac494bb19573f0ca61a08afa8", "7c16240714ea0e12b41a914f2945784ac494bb19573f0ca61a08afa8");
-        DelegationsAndRewards delegationsAndRewards = ogmiosWSClient.delegationsAndRewards(rewardAccounts);
+        List<String> credentials = List.of("7c16240714ea0e12b41a914f2945784ac494bb19573f0ca61a08afa8");
+        DelegationsAndRewards delegationsAndRewards = ogmiosWSClient.delegationsAndRewards(credentials);
         log.info(delegationsAndRewards.toString());
         Assertions.assertNotNull(delegationsAndRewards);
         Assertions.assertNotNull(delegationsAndRewards.getDelegationAndRewardMap());
@@ -96,6 +96,15 @@ class OgmiosWSClientIntegrationTest {
         LedgerTip ledgerTip = ogmiosWSClient.ledgerTip();
         log.info(ledgerTip.toString());
         Assertions.assertNotNull(ledgerTip);
+    }
+
+    @Test
+    void nonMyopicMemberRewardsByCredentialsTest() {
+        List<String> credentials = List.of("7c16240714ea0e12b41a914f2945784ac494bb19573f0ca61a08afa8");
+        NonMyopicMemberRewards nonMyopicMemberRewards = ogmiosWSClient.nonMyopicMemberRewardsByCredentials(credentials);
+        log.info(nonMyopicMemberRewards.toString());
+        Assertions.assertNotNull(nonMyopicMemberRewards);
+        Assertions.assertNotNull(nonMyopicMemberRewards.getNonMyopicMemberRewardsMap());
     }
 
     @Test
