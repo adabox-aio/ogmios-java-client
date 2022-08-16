@@ -52,7 +52,7 @@ The Java library allows synchronous communication with **Ogmios** Server by inte
 | `nonMyopicMemberRewards`     | Non-myopic member rewards for each pool. Used in ranking.                        | :heavy_check_mark: |
 | `poolIds`                    | The list of all pool identifiers currently registered and active.                | :heavy_check_mark: |
 | `poolParameters`             | Stake pool parameters submitted with registration certificates.                  | :heavy_check_mark: |
-| `poolsRanking`               | Retrieve stake pools ranking (a.k.a desirability).                               |        :x:         |
+| `poolsRanking`               | Retrieve stake pools ranking (a.k.a desirability).                               | :heavy_check_mark: |
 | `proposedProtocolParameters` | The last update proposal w.r.t. protocol parameters, if any.                     | :heavy_check_mark: |
 | `rewardsProvenance`          | Get details about rewards calculation for the ongoing epoch.                     | :heavy_check_mark: |
 | `stakeDistribution`          | Distribution of the stake across all known stake pools.                          |        :x:         |

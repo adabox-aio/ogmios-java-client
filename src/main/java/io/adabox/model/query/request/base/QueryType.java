@@ -14,6 +14,7 @@ public enum QueryType {
     NON_MYOPIC_MEMBER_REWARDS("nonMyopicMemberRewards"),
     POOL_IDS("poolIds"),
     POOL_PARAMETERS("poolParameters"),
+    POOLS_RANKING("poolsRanking"),
     PROPOSED_PROTOCOL_PARAMETERS("proposedProtocolParameters"),
     REWARDS_PROVENANCE("rewardsProvenance"),
     SYSTEM_START("systemStart"),

@@ -192,6 +192,11 @@ public class OgmiosWSClient extends WebSocketClient implements LocalTxSubmission
     }
 
     @Override
+    public PoolsRanking poolsRanking() {
+        return (PoolsRanking) send(new PoolsRankingRequest());
+    }
+
+    @Override
     public ProposedProtocolParameters proposedProtocolParameters() {
         return (ProposedProtocolParameters) send(new ProposedProtocolParametersRequest());
     }

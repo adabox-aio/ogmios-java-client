@@ -108,6 +108,13 @@ public interface LocalStateQuery {
     PoolParameters poolParameters(List<String> bech32PoolIds);
 
     /**
+     * Retrieve stake pools ranking (a.k.a desirability).
+     *
+     * @return {@link PoolsRanking}
+     */
+    PoolsRanking poolsRanking();
+
+    /**
      * The last update proposal w.r.t. protocol parameters, if any.
      *
      * @return {@link ProposedProtocolParameters}

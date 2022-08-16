@@ -137,15 +137,22 @@ class OgmiosWSClientIntegrationTest {
     }
 
     @Test
+    void poolsRankingTest() {
+        PoolsRanking poolsRanking = ogmiosTestnetClient.poolsRanking();
+        log.info(poolsRanking.toString());
+        Assertions.assertNotNull(poolsRanking);
+    }
+
+    @Test
     void proposedProtocolParametersTest() {
-        ProposedProtocolParameters proposedProtocolParameters = ogmiosMainnetClient.proposedProtocolParameters();
+        ProposedProtocolParameters proposedProtocolParameters = ogmiosTestnetClient.proposedProtocolParameters();
         log.info(proposedProtocolParameters.toString());
         Assertions.assertNotNull(proposedProtocolParameters);
     }
 
     @Test
     void rewardsProvenanceTest() {
-        RewardsProvenance rewardsProvenance = ogmiosMainnetClient.rewardsProvenance();
+        RewardsProvenance rewardsProvenance = ogmiosTestnetClient.rewardsProvenance();
         log.info(rewardsProvenance.toString());
         Assertions.assertNotNull(rewardsProvenance);
     }
@@ -186,5 +193,6 @@ class OgmiosWSClientIntegrationTest {
     @AfterAll
     void terminateOgmiosClient() throws InterruptedException {
         ogmiosTestnetClient.closeBlocking();
+        ogmiosMainnetClient.closeBlocking();
     }
 }
