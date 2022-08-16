@@ -93,6 +93,12 @@ public interface LocalStateQuery {
     NonMyopicMemberRewards nonMyopicMemberRewardsByAmounts(List<Integer> amounts);
 
     /**
+     * The list of all pool identifiers currently registered and active.
+     * @return {@link PoolIds}
+     */
+    PoolIds poolIds();
+
+    /**
      * The chain's start time (UTC).
      * @return {@link SystemStart}
      */

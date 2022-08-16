@@ -182,6 +182,11 @@ public class OgmiosWSClient extends WebSocketClient implements LocalTxSubmission
     }
 
     @Override
+    public PoolIds poolIds() {
+        return (PoolIds) send(new PoolIdsRequest());
+    }
+
+    @Override
     public SystemStart systemStart() {
         return (SystemStart) send(new SystemStartRequest());
     }

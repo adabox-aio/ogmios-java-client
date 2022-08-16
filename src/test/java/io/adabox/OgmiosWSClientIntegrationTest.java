@@ -117,6 +117,13 @@ class OgmiosWSClientIntegrationTest {
     }
 
     @Test
+    void poolIdsTest() {
+        PoolIds poolIds = ogmiosWSClient.poolIds();
+        log.info(poolIds.toString());
+        Assertions.assertNotNull(poolIds);
+    }
+
+    @Test
     void systemStartTest() {
         SystemStart systemStart = ogmiosWSClient.systemStart();
         log.info(systemStart.toString());

@@ -12,6 +12,7 @@ public enum QueryType {
     GENESIS_CONFIG("genesisConfig"),
     LEDGER_TIP("ledgerTip"),
     NON_MYOPIC_MEMBER_REWARDS("nonMyopicMemberRewards"),
+    POOL_IDS("poolIds"),
     SYSTEM_START("systemStart"),
     UTXO("utxo");
 
