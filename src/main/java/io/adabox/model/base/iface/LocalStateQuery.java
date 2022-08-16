@@ -94,12 +94,22 @@ public interface LocalStateQuery {
 
     /**
      * The list of all pool identifiers currently registered and active.
+     *
      * @return {@link PoolIds}
      */
     PoolIds poolIds();
 
     /**
+     * Stake pool parameters submitted with registration certificates.
+     *
+     * @param bech32PoolIds List Of Blake2b 32-byte digest of a pool's verification keys.
+     * @return {@link PoolParameters}
+     */
+    PoolParameters poolParameters(List<String> bech32PoolIds);
+
+    /**
      * The chain's start time (UTC).
+     *
      * @return {@link SystemStart}
      */
     SystemStart systemStart();

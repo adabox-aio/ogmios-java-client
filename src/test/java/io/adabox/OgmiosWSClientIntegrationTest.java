@@ -124,6 +124,15 @@ class OgmiosWSClientIntegrationTest {
     }
 
     @Test
+    void poolParametersTest() {
+        List<String> poolIds = List.of("pool1rcsezjrma577f06yp40lsz76uvwh7gne35afx3zrq2ktx50f8t8");
+        PoolParameters poolParameters = ogmiosWSClient.poolParameters(poolIds);
+        log.info(poolParameters.toString());
+        Assertions.assertNotNull(poolParameters);
+//        Assertions.assertNotNull(poolParameters.getNonMyopicMemberRewardsMap());
+    }
+
+    @Test
     void systemStartTest() {
         SystemStart systemStart = ogmiosWSClient.systemStart();
         log.info(systemStart.toString());

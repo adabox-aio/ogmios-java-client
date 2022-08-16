@@ -10,7 +10,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @AllArgsConstructor
-public class DelegationAndReward {
+public class DelegationAndRewardsDto {
 
     /**
      * Bech32 Pool Id
@@ -22,7 +22,7 @@ public class DelegationAndReward {
      */
     private String rewards;
 
-    public static DelegationAndReward deserialize(JsonNode jsonNode) {
-        return new DelegationAndReward(jsonNode.get("delegate").asText(), jsonNode.get("rewards").asText());
+    public static DelegationAndRewardsDto deserialize(JsonNode jsonNode) {
+        return new DelegationAndRewardsDto(jsonNode.get("delegate").asText(), jsonNode.get("rewards").asText());
     }
 }

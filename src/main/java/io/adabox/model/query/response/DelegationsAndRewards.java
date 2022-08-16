@@ -2,7 +2,7 @@ package io.adabox.model.query.response;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import io.adabox.model.query.response.base.QueryResponse;
-import io.adabox.model.query.response.models.DelegationAndReward;
+import io.adabox.model.query.response.models.DelegationAndRewardsDto;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,7 +18,7 @@ import java.util.Map;
 @EqualsAndHashCode(callSuper = true)
 public class DelegationsAndRewards extends QueryResponse {
 
-    private final Map<String, DelegationAndReward> delegationAndRewardMap = new HashMap<>();
+    private final Map<String, DelegationAndRewardsDto> delegationAndRewardMap = new HashMap<>();
 
     public DelegationsAndRewards(long msgId) {
         super(msgId);
@@ -29,7 +29,7 @@ public class DelegationsAndRewards extends QueryResponse {
         Iterator<String> iterator = jsonNode.fieldNames();
         while (iterator.hasNext()) {
             String key = iterator.next();
-            delegationsAndRewards.getDelegationAndRewardMap().put(key, DelegationAndReward.deserialize(jsonNode.get(key)));
+            delegationsAndRewards.getDelegationAndRewardMap().put(key, DelegationAndRewardsDto.deserialize(jsonNode.get(key)));
         }
         return delegationsAndRewards;
     }

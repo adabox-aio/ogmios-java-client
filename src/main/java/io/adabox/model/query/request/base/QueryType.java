@@ -13,6 +13,7 @@ public enum QueryType {
     LEDGER_TIP("ledgerTip"),
     NON_MYOPIC_MEMBER_REWARDS("nonMyopicMemberRewards"),
     POOL_IDS("poolIds"),
+    POOL_PARAMETERS("poolParameters"),
     SYSTEM_START("systemStart"),
     UTXO("utxo");
 

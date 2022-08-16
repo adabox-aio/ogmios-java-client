@@ -34,9 +34,11 @@ public class QueryResponse extends Response {
             case LEDGER_TIP:
                 return LedgerTip.deserialize(msgId, jsonNode);
             case NON_MYOPIC_MEMBER_REWARDS:
-                return NonMyopicMemberRewards.deserialize(msgId,jsonNode);
+                return NonMyopicMemberRewards.deserialize(msgId, jsonNode);
             case POOL_IDS:
-                return PoolIds.deserialize(msgId,jsonNode);
+                return PoolIds.deserialize(msgId, jsonNode);
+            case POOL_PARAMETERS:
+                return PoolParameters.deserialize(msgId, jsonNode);
             case SYSTEM_START:
                 return SystemStart.deserialize(msgId, jsonNode);
             case UTXO:

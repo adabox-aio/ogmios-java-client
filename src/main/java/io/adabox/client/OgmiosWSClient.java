@@ -187,6 +187,11 @@ public class OgmiosWSClient extends WebSocketClient implements LocalTxSubmission
     }
 
     @Override
+    public PoolParameters poolParameters(List<String> bech32PoolIds) {
+        return (PoolParameters) send(new PoolParametersRequest(bech32PoolIds));
+    }
+
+    @Override
     public SystemStart systemStart() {
         return (SystemStart) send(new SystemStartRequest());
     }

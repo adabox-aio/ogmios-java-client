@@ -51,7 +51,7 @@ The Java library allows synchronous communication with **Ogmios** Server by inte
 | `ledgerTip`                  | The most recent block tip known of the ledger.                                   | :heavy_check_mark: |
 | `nonMyopicMemberRewards`     | Non-myopic member rewards for each pool. Used in ranking.                        | :heavy_check_mark: |
 | `poolIds`                    | The list of all pool identifiers currently registered and active.                | :heavy_check_mark: |
-| `poolParameters`             | Stake pool parameters submitted with registration certificates.                  |        :x:         |
+| `poolParameters`             | Stake pool parameters submitted with registration certificates.                  | :heavy_check_mark: |
 | `poolsRanking`               | Retrieve stake pools ranking (a.k.a desirability).                               |        :x:         |
 | `proposedProtocolParameters` | The last update proposal w.r.t. protocol parameters, if any.                     |        :x:         |
 | `rewardsProvenance`          | Get details about rewards calculation for the ongoing epoch.                     |        :x:         |
