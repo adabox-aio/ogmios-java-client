@@ -58,8 +58,8 @@ class OgmiosWSClientIntegrationTest {
         CurrentProtocolParameters currentProtocolParameters = ogmiosTestnetClient.currentProtocolParameters();
         Assertions.assertNotNull(currentProtocolParameters);
         Assertions.assertNotNull(currentProtocolParameters.getProtocolParameters());
-        Assertions.assertEquals(currentProtocolParameters.getProtocolParameters().getPoolDeposit(),"500000000");
-        Assertions.assertEquals(currentProtocolParameters.getProtocolParameters().getCoinsPerUtxoByte(), "4310");
+        Assertions.assertEquals("500000000", currentProtocolParameters.getProtocolParameters().getPoolDeposit());
+        Assertions.assertEquals("4310", currentProtocolParameters.getProtocolParameters().getCoinsPerUtxoByte());
         Assertions.assertNotNull(currentProtocolParameters.getProtocolParameters().getPoolRetirementEpochBound());
         Assertions.assertNotNull(currentProtocolParameters.getProtocolParameters().getDesiredNumberOfPools());
         log.info(currentProtocolParameters.toString());
