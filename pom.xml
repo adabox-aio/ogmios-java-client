@@ -22,7 +22,7 @@
         <slf4j.version>2.0.6</slf4j.version>
         <Java-WebSocket.version>1.5.3</Java-WebSocket.version>
         <lombok.version>1.18.24</lombok.version>
-        <jackson-databind.version>2.14.1</jackson-databind.version>
+        <jackson-databind.version>2.15.0</jackson-databind.version>
         <cbor.version>0.9</cbor.version>
         <junit-jupiter-engine.version>5.9.2</junit-jupiter-engine.version>
         <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
